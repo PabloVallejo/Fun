@@ -1,0 +1,17 @@
+{
+  "name": "Hello",
+  "version": "0.0.1",
+  "description": "Sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.js"
+  },
+  "repository": "",
+  "author": "Pablo Vallejo",
+  "license": "BSD",
+  "subdomain": "bypeople.hello",
+  "engines": {
+    "node": "0.8.x"
+  }
+}
