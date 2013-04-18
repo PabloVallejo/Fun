@@ -1,0 +1,43 @@
+<!--
+    App login page
+-->
+
+<%- include header.ejs %>
+
+
+    <div class="container" role="main">
+
+        <div class="home-unit unit">
+
+            <div class="featured-image span">
+                <div class="image-container">
+                    <img src="images/home-1.jpg" alt="popsy">
+                </div>
+            </div>
+
+            <div class="home-login span">
+                <h1>Log In To Start</h1>
+                <p>Fun lets you share messages, images and videos with you friends with ease.</p>
+
+                <form id="login-form">
+                    <div class="login-buttons-container">
+                        <input name="username" class="large" type="text" placeholder="Username or Email">
+                        <input name="password" class="large" type="password" placeholder="Password">
+
+                        <p class="mute">
+                            <small>
+                                Since this is a preview release, registration is on only available through invitation.
+                            </small>
+                        </p>
+
+                        <input class="button button-large button-blue pull-right" type="submit" value="Login">
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<%- include footer.ejs %>

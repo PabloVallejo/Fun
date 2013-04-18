@@ -1,0 +1,112 @@
+/**
+* App style
+*/
+body {
+    background: url( ../images/patterns/subtle_white_feathers.png );
+}
+
+
+// Header
+#header {
+    padding:  15px 0;
+}
+
+.home-unit {
+
+    // Home descriptive image
+    .featured-image {
+        width: 560px;
+        -webkit-box-shadow: 0 1px 2px rgba(34,25,25,.15);
+           -moz-box-shadow: 0 1px 2px rgba(34,25,25,.15);
+                box-shadow: 0 1px 2px rgba(34,25,25,.15);
+
+        // Image container
+        .image-container {
+            width: 540px;
+            height: 362px;
+            padding: 10px;
+            background-color: white;
+        }
+    }
+
+    // Login form
+    .home-login {
+        margin-left: 50px;
+        width: 340px;
+
+        #login-form {
+            margin-top: 16px;
+
+            .mute {
+                margin-top: 5px;
+            }
+
+        }
+    }
+
+}
+
+.block-divisor {
+    margin-top: 35px;
+    border-top: 1px solid #bbb;
+}
+
+// Footer
+.footer {
+    padding-top: 15px;
+}
+
+
+//--------------
+// Main App
+//-----------------
+
+// New message
+//--------------------
+.app .new-message-wrapper {
+    margin-bottom: 20px;
+    // border-bottom: 1px dotted #ccc;
+}
+
+.app .new-message {
+
+    .avatar {
+        float: left;
+    }
+
+    // Space for writing new message
+    .message-body {
+        margin-left: 120px;
+        background: #fff;
+        padding: 15px;
+    }
+
+    .actions {
+        text-align: right;
+    }
+
+    .message-body textarea {
+        min-height: 50px;
+        width: 795px;
+    }
+}
+
+// Messages list
+//-----------------------
+.app .messages .message {
+
+    margin-bottom: 20px;
+
+    // Avatar
+    .avatar {
+        float: left;
+    }
+
+    .message-body {
+        padding: 15px;
+        margin-left: 120px;
+        background-color: white;
+        .box-shadow( 0 1px 2px rgba(34, 25, 25, 0.15) );
+    }
+
+}

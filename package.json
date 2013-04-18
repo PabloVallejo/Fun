@@ -1,0 +1,21 @@
+{
+  "name": "dummyApp",
+  "version": "0.0.1",
+  "description": "App to learn express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Pablo Vallejo",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~3.1.0",
+    "mongodb": "~1.2.14",
+    "moment": "~2.0.0",
+    // "jade": "~0.28.2",
+    "ejs": "~0.8.3",
+    // "less": "~1.3.3",
+    "less-middleware": "~0.1.9"
+  }
+}

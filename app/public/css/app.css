@@ -1,0 +1,41 @@
+/**
+* App style
+*/
+body {
+  background: url(../images/patterns/subtle_white_feathers.png );
+}
+#header {
+  padding: 15px 0;
+}
+.home-unit .featured-image {
+  width: 560px;
+  -webkit-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.15);
+  -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.15);
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.15);
+}
+.home-unit .featured-image .image-container {
+  width: 540px;
+  height: 362px;
+  padding: 10px;
+  background-color: white;
+}
+.home-unit .home-login {
+  margin-left: 50px;
+  width: 340px;
+}
+.home-unit .home-login #login-form {
+  margin-top: 16px;
+}
+.home-unit .home-login #login-form .mute {
+  margin-top: 5px;
+}
+.block-divisor {
+  margin-top: 35px;
+  border-top: 1px solid #bbb;
+}
+.footer {
+  padding-top: 15px;
+}
+.app .messages .message {
+  background-color: white;
+}

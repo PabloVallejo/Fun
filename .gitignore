@@ -1,0 +1,8 @@
+###
+# Ignore cache.js and cache.css
+#
+.DS_Store
+
+# Ignore node modules
+node_modules
+
