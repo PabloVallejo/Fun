@@ -46,21 +46,26 @@
                 data.date = date;
 
                 // Create the model
-                // collections.Messages.create( data );
-                console.log( data );
+                collections.Messages.create( data );
 
 
             }
 
             // Sync event
         ,   onSync: function( model ) {
-
-                console.log( model );
             }
 
             // Create event
-        ,   onAdd: function( model ) {
-                console.log( 'create' );
+        ,   onAdd: function( model, collection, c ) {
+
+                // Render the element
+                var container = '.messages'
+                ,   el = $( this.template( model.toJSON() ) );
+
+                el.hide();
+                $( container ).prepend( el );
+                el.slideDown();
+
             }
 
             // Render

@@ -10,8 +10,13 @@
 var mongoose = require( 'mongoose' )
 // ,   crypto = require( 'crypto' );
 
+var mongoUri = process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/test';
+
 // Make connection
-mongoose.connect( 'mongodb://localhost/test' );
+// mongoose.connect( 'mongodb://localhost/test' );
+mongoose.connect( mongoUri );
 
 // Database
 var db = mongoose.connection;
