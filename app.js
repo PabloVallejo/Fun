@@ -5,7 +5,8 @@
 var express = require( 'express' )
 ,   http = require( 'http' )
 ,   app = express()
-,   events = require( 'events' );
+,   events = require( 'events' )
+,   port = process.env.PORT || 3000;
 
 
 /**
@@ -14,7 +15,7 @@ var express = require( 'express' )
 app.configure( function() {
 
     // Set port
-    app.set( 'port', 3000 );
+    app.set( 'port', port );
 
     // Views dir
     app.set( 'views', __dirname + '/app/server/views' );
