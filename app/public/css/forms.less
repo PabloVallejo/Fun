@@ -71,3 +71,38 @@ input[type="color"].large,
     min-width: 300px;
     height: 30px;
 }
+
+// Input states
+input[type="text"].input-error,
+input[type="password"].input-error,
+input[type="datetime"].input-error,
+input[type="datetime-local"].input-error,
+input[type="date"].input-error,
+input[type="month"].input-error,
+input[type="time"].input-error,
+input[type="week"].input-error,
+input[type="number"].input-error,
+input[type="email"].input-error,
+input[type="url"].input-error,
+input[type="search"].input-error,
+input[type="tel"].input-error,
+input[type="color"].input-error,
+.uneditable-input.input-error {
+    background-color: rgb(253, 220, 220);
+    border: 1px solid rgb(240, 135, 135)
+}
+
+
+
+// Uneditable inputs
+//---------------------------
+
+// Make uneditable inputs look inactive
+.uneditable-input,
+.uneditable-textarea {
+    color: @grayLight;
+    background-color: darken( @inputBackground, 1% );
+    border-color: @inputBorder;
+    // .box-shadow( inset 0 1px 2px rgba())
+    cursor: not-allowed;
+}

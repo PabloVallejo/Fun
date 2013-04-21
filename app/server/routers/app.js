@@ -194,9 +194,21 @@ exports.index = function( req, res ) {
     var entrance = new Entrance( req, res );
 
     // Logged in
-    entrance.on( 'loggedIn', function( a, b ) {
-        console.log( a );
-        res.render( 'app' );
+    entrance.on( 'loggedIn', function( user ) {
+
+        // Get messages
+        Message.getMessages( 20, function( err, msgs ) {
+
+            if ( err ) {
+                res.render( 'app', { messages: {}, errors: err, user: {} });
+            }
+
+            console.log( msgs );
+            res.render( 'app', { messages: msgs, user: user });
+
+        });
+
+
     });
 
     // Not logged in
@@ -301,7 +313,7 @@ exports.login = function( req, res ) {
 exports.createUser = function( req, res ) {
 
     var user = User
-    ,   fields = [ 'username', 'password' ]
+    ,   fields = [ 'username', 'password', 'display_name', 'avatar_src' ]
     ,   data = {}
     ,   entrance = new Entrance( req, res );
 
@@ -311,18 +323,21 @@ exports.createUser = function( req, res ) {
     };
 
     // Hash password
-    data[ 'password' ] = entrance.hash( data[ 'password' ] );
+    data[ 'password' ] = utils.hash( data[ 'password' ] );
 
     // Create model + save user
     candidate = new User( data );
     candidate.save( function( err, user ) {
 
         if( err ) {
-            res.send({ error: 'User could not be created' });
+            console.log( 'err' );
+            // res.send({ error: 'invalid' });
+            // res.send({ debug: 'gotten' });
+            // console.log( res );
         }
 
-        // Send some user data
-        res.send({ user: user });
+        // // Send some user data
+        res.send({ user: user, error: err });
 
     });
 
@@ -334,14 +349,11 @@ exports.createUser = function( req, res ) {
 */
 exports.newMessage = function( req, res ) {
 
-    res.send({ debug:  'gotten' });
-    return;
-
     // Save message
     var data = {}
     ,   errors = []
     ,   fields = [ 'author_id', 'author_display_name'
-            , 'message_text', 'date'
+            , 'message_text', 'date', 'author_avatar_src'
         ];
 
     for ( var i=0; i < fields.length; i++ ) {

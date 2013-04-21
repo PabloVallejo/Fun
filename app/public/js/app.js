@@ -3,9 +3,11 @@
 //-----------------
 
 
-// Define app
+// Define
 window.app = {
-        config: {}
+        config: {
+            templatesUrl: window.location.origin + '/js/templates/'
+        }
     ,   models: {}
     ,   views: {}
     ,   collections: {}

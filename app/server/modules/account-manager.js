@@ -22,8 +22,9 @@ var UserSchema = mongoose.Schema({
         // id: { type: Number }
         display_name: String
     ,   username: { type: String, index: { unique: true } }
-    ,   email: { type: String, index: { unique: true } }
+    ,   email: { type: String }
     ,   password: String
+    ,   avatar_src: String
     ,   bio: String
 });
 

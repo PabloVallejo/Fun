@@ -1,26 +1,10 @@
 /**
 * Volatile.css CSS Framework
+* Adapted from Twitter Bootstrap
 *
 * Author Pablo Vallejo
 * Github:  github.com/PabloVallejo
 */
-/**
-* variables.less
-*/
-/**
-* Mixins.less
-*/
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both;
-}
 article,
 aside,
 details,
@@ -139,6 +123,23 @@ input[type="search"]::-webkit-search-cancel-button {
 textarea {
   overflow: auto;
   vertical-align: top;
+}
+/**
+* variables.less
+*/
+/**
+* Mixins.less
+*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
 }
 /**
 * css/scaffolding.less
@@ -384,6 +385,59 @@ input[type="color"].large,
   min-width: 300px;
   height: 30px;
 }
+input[type="text"].input-error,
+input[type="password"].input-error,
+input[type="datetime"].input-error,
+input[type="datetime-local"].input-error,
+input[type="date"].input-error,
+input[type="month"].input-error,
+input[type="time"].input-error,
+input[type="week"].input-error,
+input[type="number"].input-error,
+input[type="email"].input-error,
+input[type="url"].input-error,
+input[type="search"].input-error,
+input[type="tel"].input-error,
+input[type="color"].input-error,
+.uneditable-input.input-error {
+  background-color: #fddcdc;
+  border: 1px solid #f08787;
+}
+.uneditable-input,
+.uneditable-textarea {
+  color: #999999;
+  background-color: #fcfcfc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+/**
+* Close button
+*/
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
 /**
 * Buttons.less
 */
@@ -463,6 +517,75 @@ input[type="color"].large,
   font-size: 18.75px;
 }
 /**
+* Modals
+*/
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  background-color: #000000;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  display: none;
+}
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: 1050;
+  width: 560px;
+  margin-left: -280px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: none;
+  display: none;
+}
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+}
+.modal-header h3 {
+  margin: 0;
+  line-height: 30px;
+}
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 15px;
+}
+.modal-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  *zoom: 1;
+}
+.modal-footer:before,
+.modal-footer:after {
+  display: table;
+  content: "";
+}
+.modal-footer:after {
+  clear: both;
+}
+.modal-footer .button + .button {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+/**
 * App style
 */
 body {
@@ -506,6 +629,9 @@ body {
 .app .new-message .avatar {
   float: left;
 }
+.app .new-message .avatar img {
+  width: 100px;
+}
 .app .new-message .message-body {
   margin-left: 120px;
   background: #fff;
@@ -523,6 +649,9 @@ body {
 }
 .app .messages .message .avatar {
   float: left;
+}
+.app .messages .message .avatar img {
+  width: 100px;
 }
 .app .messages .message .message-body {
   padding: 15px;

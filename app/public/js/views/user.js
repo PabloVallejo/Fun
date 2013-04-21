@@ -13,9 +13,9 @@
 
             // Delegate events for adding new messages
         ,   events: {
-                'submit #login-form': 'login'
+                    'submit #login-form': 'login'
+                ,   'submit .register-form': 'register'
             }
-
 
 
             // At initialization, we bind to the relevan events on the
@@ -24,6 +24,36 @@
 
                 // User model
                 this.model = new models.User();
+
+                // On Register
+                this.model.on( 'register', this.onRegister );
+
+                // On login
+                this.model.on( 'login', this.onLogin );
+            }
+
+            // After registration
+        ,   onRegister: function( model, response, options ) {
+
+                // Dismiss loading
+                // Close modal
+                var modal = '.register-modal'
+                ,   backdrop = '.modal-backdrop';
+
+                $( modal ).hide()
+                $( backdrop ).hide();
+
+                console.log( response );
+            }
+
+            // On login
+        ,   onLogin: function( model, response, options ) {
+
+                if ( typeof response.error == 'undefined' ) {
+                    return window.location.reload();
+                }
+
+                alert( response.error );
             }
 
             // Sync event
@@ -46,13 +76,32 @@
                 ,   target = e.currentTarget;
 
                 // Get login data
-                data = _.getFormData( e.currentTarget );
+                data = _.getFormData( target );
 
+                // Send login request
+                this.model.set( data );
+                this.model.login();
+
+            }
+
+            // Register form
+        ,   register: function( e ) {
+                e.preventDefault();
+
+                var target = e.currentTarget
+                ,   data;
+
+                // Loading status
+                $(  target ).find( 'input[type="submit"]' )
+                    .addClass( 'disabled' )
+                    .attr( 'value', 'Loading...' );
+
+                // Get data
+                data = _.getFormData( target );
                 this.model.set( data );
 
-                console.log( this.model.toJSON() );
-                this.model.save();
-
+                // Register
+                this.model.register();
             }
 
 

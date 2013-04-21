@@ -16,7 +16,29 @@
 
             // Url
         ,   url: '/login'
-        // ,   url: '/user'
+
+            // Logs a user in
+        ,   login: function() {
+
+                var success = function( model, response, options ) {
+                    model.trigger( 'login',  model, response, options );
+                }
+
+                // Send the request
+                this.save( this.toJSON(), { success: success, url: '/login' } );
+
+            }
+
+            // Registers users
+        ,   register: function() {
+
+                var success = function( model, response, options ) {
+                    model.trigger( 'register', model, response, options );
+                }
+
+                this.save( this.toJSON(), { success: success, url: '/register' } );
+
+            }
 
     });
 

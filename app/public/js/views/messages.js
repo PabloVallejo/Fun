@@ -1,5 +1,5 @@
 //------------------------
-// Popsy - views/messages
+// Fun - views/messages
 //-------------------------
 ( function( config, models, views, collections, routers, utils ) {
 
@@ -12,9 +12,8 @@
             // ... Tag
             el: '.page'
 
-
             // Template for a single message
-        ,   template: _.template( $( '#message' ).html() )
+        ,   template: new EJS({ url: config.templatesUrl + 'message' })
 
             // The DOM events specific to a message
         ,   events: {
@@ -52,7 +51,8 @@
             }
 
             // Sync event
-        ,   onSync: function( model ) {
+        ,   onSync: function( model, response, options ) {
+                console.log( response );
             }
 
             // Create event
@@ -60,23 +60,11 @@
 
                 // Render the element
                 var container = '.messages'
-                ,   el = $( this.template( model.toJSON() ) );
+                ,   el = $( this.template.render( model.toJSON() ) );
 
                 el.hide();
                 $( container ).prepend( el );
                 el.slideDown();
-
-            }
-
-            // Render
-        ,   render: function() {
-
-                // var messages = '.messages'
-                // ,   template = this.template( this.model.toJSON() );
-
-                // console.log( template );
-                // this.$el.html( this.template( this.model.toJSON() ) );
-                // return this;
 
             }
 

@@ -13,9 +13,9 @@
             // Template for messages
         ,   messageTemplate: $( '#message' ).html()
 
-            // Delegate events for adding new messages
+            // Delegate events
         ,   events: {
-                   // 'submit .new-message-form': 'createOnSubmit'
+
             }
 
             // At initialization, we bind to the relevan events on the
@@ -31,46 +31,15 @@
                 // User
                 this.user = new views.User();
 
+                // Template
+                this.template = new views.Template();
+
             }
 
             // Render
         ,   render: function() {
 
             }
-
-            // Add a single message to the list by creating a view for it
-            // and appending its element to the
-        // ,   addOne: function( message ) {
-
-        //         var view = new views.Message({ model: message });
-        //         $( '#all-messages' ).append( view.render().el );
-
-        //     }
-
-            // Generate the attributes for a new message item
-        // ,   newAttributes: function() {
-        //         return {
-        //                 author: 'Pablo Vallejo'
-        //             ,   message: this.input.val()
-        //         }
-        //     }
-
-            // New message
-        // ,   createOnSubmit: function( e ) {
-        //         e.preventDefault();
-
-        //         var target = e.currentTarget
-        //         ,   data;
-
-        //         // Get message
-        //         data = _.getFormData( target );
-
-        //         // Get attributes
-        //         collection.Messages.create( this.newAttributes() );
-
-
-
-        //     }
 
             // Create a new message after the return key's pressed
         ,   createOnEnter: function( e ) {
@@ -84,16 +53,6 @@
                 this.input.val( '' );
             }
 
-            // Initializes ACE and opens the snippet modal
-        ,   openSnippetModal: function() {
-
-                // Call modal view
-                this.SnippetView = this.SnippetView || new views.Snippet;
-
-                // Open modal
-                this.SnippetView.open();
-
-            }
 
     });
 

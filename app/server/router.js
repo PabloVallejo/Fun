@@ -27,7 +27,7 @@ module.exports = function( app ) {
     //----------------------------
     // User
     //----------------------------
-    app.post( '/user', App.createUser );
+    app.post( '/register', App.createUser );
 
 
     //---------------------------
