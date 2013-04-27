@@ -36,6 +36,13 @@ module.exports = function( app ) {
     app.post( '/message', App.newMessage );
 
 
+    //---------------------------------
+    // Default view
+    //---------------------------------
+    app.get( '/*', function( req, res ) {
+        res.json( 404, { status: 'Not found.' } );
+    });
+
 
     //---------------------------
     // Debug

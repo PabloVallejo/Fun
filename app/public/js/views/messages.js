@@ -60,9 +60,16 @@
 
                 // Render the element
                 var container = '.messages'
-                ,   el = $( this.template.render( model.toJSON() ) );
+                ,   data = model.toJSON()
+                ,   el;
 
+                if ( typeof data.date != 'undefined' ) {
+                    data.date = moment( data.date ).fromNow();
+                }
+
+                el = $( this.template.render( data ) );
                 el.hide();
+
                 $( container ).prepend( el );
                 el.slideDown();
 

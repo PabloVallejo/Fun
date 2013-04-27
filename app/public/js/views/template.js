@@ -20,7 +20,7 @@
             // Bind events
         ,   events: {
                     'click [data-toggle="modal"]' : 'openModal'
-                ,   'click .close': 'closeModal'
+                ,   'click .close, .dismiss': 'closeModal'
             }
 
             // Opens the modal
@@ -46,7 +46,8 @@
 
                 // Dismiss map
                 map = {
-                    'register': '.modal.register-modal'
+                        'register': '.modal.register-modal'
+                    ,   'about': '.modal.about-modal'
                 }
 
                 if ( typeof map[ dismiss ] == 'undefined' ) return;

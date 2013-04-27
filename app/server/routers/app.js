@@ -6,7 +6,8 @@ var User = require( '../modules/account-manager' )
 ,   Message = require( '../modules/message' )
 ,   crypto = require( 'crypto' )
 ,   events = require( 'events' )
-,   utils = require( '../modules/utils' );
+,   utils = require( '../modules/utils' )
+,   moment = require( 'moment' );
 
 
 /**
@@ -157,21 +158,6 @@ Entrance.prototype.setAuthCookie = function( user ) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
 * App debug
 */
@@ -203,8 +189,23 @@ exports.index = function( req, res ) {
                 res.render( 'app', { messages: {}, errors: err, user: {} });
             }
 
-            console.log( msgs );
-            res.render( 'app', { messages: msgs, user: user });
+            // Hack to format date, since modifying the object
+            // directly didn't work
+            var coll = [];
+            for( var m in msgs ) {
+
+                msg = {
+                        author_id: msgs[ m ][ 'author_id' ]
+                    ,   author_display_name: msgs[ m ][ 'author_display_name' ]
+                    ,   author_avatar_src: msgs[ m ][ 'author_avatar_src' ]
+                    ,   message_text: msgs[ m ][ 'message_text' ]
+                    ,   date: moment( msgs[ m ][ 'date' ] ).fromNow()
+                }
+
+                coll.push( msg );
+            }
+
+            res.render( 'app', { messages: coll, user: user });
 
         });
 
@@ -212,52 +213,13 @@ exports.index = function( req, res ) {
     });
 
     // Not logged in
-    entrance.on( 'notLoggedIn', function( a, b ) {
-        console.log( a );
+    entrance.on( 'notLoggedIn', function( err ) {
+        console.log( err );
         res.render( 'index' );
     });
 
     // Valida user
     entrance.validateAuthCookie();
-
-    // var Foo = function( a ) { console.log( a ); }
-    // Foo.prototype = new events.EventEmitter;
-
-    // // Method
-    // Foo.prototype.increment = function() {
-    //     console.log( 'increament' );
-    //     this.emit( 'event' );
-    // }
-
-    // var lol = new Foo( 1 );
-    // lol
-    //     .on( 'event', function( ) { console.log( 'event gotten' ); })
-    //     .increment();
-
-    // res.send({ status: 200 });
-    // var entrance = new Entrance( req, res )
-    // ,   _user;
-
-    // // Route
-    // entrance.isUserLoggedIn( function( err, user ) {
-
-    //     _user = user;
-
-    //     if( err ) res.render( 'index' );
-    //     console.log( err );
-
-    //     // Get messges
-    //     Message.getMessages( 20, function( err, msgs ) {
-
-    //         if ( err ) {
-    //             res.render( 'app', { messages: {}, errors: err });
-    //         }
-
-    //         res.render( 'app', { messages: {}, user: _user });
-
-    //     });
-
-    // });
 
 }
 
@@ -330,17 +292,14 @@ exports.createUser = function( req, res ) {
     candidate.save( function( err, user ) {
 
         if( err ) {
-            console.log( 'err' );
-            // res.send({ error: 'invalid' });
-            // res.send({ debug: 'gotten' });
-            // console.log( res );
+            console.log( err );
+            res.send({ error: error });
         }
 
         // // Send some user data
         res.send({ user: user, error: err });
 
     });
-
 
 }
 
@@ -395,19 +354,3 @@ exports.debug = function( req, res ) {
     res.send({ debug: 'Gotten' });
 
 }
-
-// <input type="hidden" name="author-id" value="<%= user._id %>">
-// <input type="hidden" name="author-display-name" value="<%= user.display_name %>">
-//  <% messages.forEach( function( message ) { %>
-
-//     <div class="message">
-//         <div class="avatar">
-//             <img class="img-circle" src="images/user-1.jpg" alt="">
-//         </div>
-//         <div class="message-body">
-//             <h4><%= message.author_display_name %><span class="small"> • 10 days ago<span></h4>
-//             <p><%= message.message_text %></p>
-//         </div>
-//     </div>
-
-// <% }) %>

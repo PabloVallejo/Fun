@@ -15,7 +15,8 @@
     "moment": "~2.0.0",
     "ejs": "~0.8.3",
     "less-middleware": "~0.1.9",
-    "crypto": "*"
+    "crypto": "*",
+    "moment": "*"
   },
   "devDependencies": {
     "mocha": "*",

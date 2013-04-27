@@ -3,7 +3,7 @@
     Miscellaneous components
 -->
 
-<div class="modal register-modal">
+<div class="modal register-modal modal-small">
 
     <div class="modal-header">
         <button class="close" type="button" data-dismiss="register">×</button>
@@ -13,13 +13,12 @@
     <form class="register-form" action="#">
         <div class="modal-body">
 
-
+                <p>Lorem ipsum dolor sit amet consectetur sit amet consectetur sit amet consectetur</p>
                 <div class="">
-                    <input type="text" name="display-name" placeholder="Your name">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="text" name="email" placeholder="your@email.here">
-                    <input type="password" name="password" placeholder="password">
-                    <input type="text" name="avatar-src" placeholder="Profile image url">
+                    <input type="text" class="large" name="display-name" placeholder="Your name">
+                    <input type="text" class="large" name="username" placeholder="Username">
+                    <input type="password" class="large" name="password" placeholder="password">
+                    <input type="text" class="large" name="avatar-src" placeholder="Profile image url">
                     <input type="hidden" name="session-token" value="">
                 </div>
 
@@ -27,10 +26,36 @@
         </div>
 
         <div class="modal-footer">
-            <a href="#" class="button">Close</a>
+            <a href="#" class="button dismiss" data-dismiss="register">Close</a>
            <input type="submit" class="button button-blue" value="Create account">
         </div>
     </form>
+
+</div>
+
+
+<!--
+    About modal
+-->
+<div class="modal about-modal modal-small">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="about">×</button>
+        <h3>About Fun</h3>
+    </div>
+
+    <div class="modal-body">
+        <p><img class="img-circle" src="images/pablo.jpg" alt=""></p>
+        <p>
+            Fun is made with all the love for <strong><a href="http://www.facebook.com/profile.php?id=1659887222">Laura Riuz</a></strong>.
+            It's made using NodeJS, Backbone, and MongoDB.
+        </p>
+        <p>Author: <a href="http://github.com/PabloVallejo">Pablo Vallejo</a></p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="dismiss button" data-dismiss="about" href="#">Ok!</a>
+    </div>
 
 </div>
 

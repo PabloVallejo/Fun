@@ -32,8 +32,8 @@ MessageSchema.statics.getMessages = function( limit, fn ) {
     }
 
     this.find().sort({ $natural: -1 }).limit( limit ).exec( fn );
-
 };
+
 
 /**
 * Message model
