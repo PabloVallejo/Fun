@@ -23,7 +23,7 @@ function Entrance( req, res ) {
     }
 
     // Response
-    this.res = res;
+    this.res = res; 
 
     // Request
     this.req = req;
@@ -351,6 +351,6 @@ exports.newMessage = function( req, res ) {
 */
 exports.debug = function( req, res ) {
 
-    res.send({ debug: 'Gotten' });
+    res.send({ debug: 'Response' });
 
 }

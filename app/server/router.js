@@ -47,7 +47,6 @@ module.exports = function( app ) {
     //---------------------------
     // Debug
     //---------------------------
-    // app.post( '/debug', App.debug );
     app.get( '/debug', App.debug );
 
 }
