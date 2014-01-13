@@ -1,9 +1,5 @@
 /**
-* Volatile.css CSS Framework
-* Adapted from Twitter Bootstrap
-*
-* Author Pablo Vallejo
-* Github:  github.com/PabloVallejo
+* Bootstrap and app specific styles.
 */
 article,
 aside,
@@ -56,16 +52,12 @@ sub {
 }
 img {
   /* Responsive images (ensure images don't scale beyond their parents) */
-
   max-width: 100%;
   /* Part 1: Set a maxium relative to the parent */
-
   width: auto\9;
   /* IE7-8 need help adjusting responsive images */
-
   height: auto;
   /* Part 2: Scale the height according to the width, otherwise you get stretching */
-
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -296,7 +288,6 @@ ol.inline > li {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   padding-left: 5px;
   padding-right: 5px;
@@ -445,7 +436,6 @@ button.close {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
   padding: 4px 12px;
   margin-bottom: 0;
