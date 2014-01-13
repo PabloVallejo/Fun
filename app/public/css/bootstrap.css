@@ -117,10 +117,10 @@ textarea {
   vertical-align: top;
 }
 /**
-* variables.less
+* Variables
 */
 /**
-* Mixins.less
+* Mixins
 */
 .clearfix {
   *zoom: 1;
@@ -134,7 +134,7 @@ textarea {
   clear: both;
 }
 /**
-* css/scaffolding.less
+* Scaffolding
 */
 body {
   margin: 0;
@@ -162,7 +162,7 @@ a:hover {
   border-radius: 500px;
 }
 /**
-* grid.less
+* Grid
 */
 .wrapper-960 {
   width: 960px;
@@ -193,7 +193,7 @@ a:hover {
   min-height: 1px;
 }
 /**
-* type.less
+* Type
 */
 @font-face {
   font-family: 'Open Sans';
@@ -299,7 +299,7 @@ hr {
   border-bottom: 1px solid #ffffff;
 }
 /**
-* form.less
+* Form
 */
 select,
 textarea,
@@ -430,7 +430,7 @@ button.close {
   -webkit-appearance: none;
 }
 /**
-* Buttons.less
+* Buttons
 */
 .button {
   display: inline-block;
@@ -577,7 +577,7 @@ button.close {
   margin-left: -200px;
 }
 /**
-* App style
+* App styles
 */
 body {
   background: url(../images/patterns/subtle_white_feathers.png );

@@ -315,7 +315,7 @@ exports.newMessage = function( req, res ) {
             , 'message_text', 'date', 'author_avatar_src'
         ];
 
-    for ( var i=0; i < fields.length; i++ ) {
+    for ( var i = 0; i < fields.length; i++ ) {
 
         if ( typeof req.param( fields[ i ] ) == 'undefined' ) {
             errors.push( 'Missing ' + fields[ i ] );

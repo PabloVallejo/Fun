@@ -13,8 +13,7 @@ var mongoose = require( './mongoose' )
 */
 var MessageSchema = mongoose.Schema({
 
-        _id: objectId
-    ,   author_id: objectId
+        author_id: objectId
     ,   author_display_name: String
     ,   author_avatar_src: String
     ,   message_text: String

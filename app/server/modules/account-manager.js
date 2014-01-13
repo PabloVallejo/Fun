@@ -19,7 +19,6 @@ var objectId = mongoose.Schema.Types.ObjectId;
 * User scheme
 */
 var UserSchema = mongoose.Schema({
-        // id: { type: Number }
         display_name: String
     ,   username: { type: String, index: { unique: true } }
     ,   email: { type: String }

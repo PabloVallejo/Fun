@@ -34,6 +34,10 @@ module.exports = function( app ) {
     // Messages
     //---------------------------
     app.post( '/message', App.newMessage );
+    // app.post( '/message', function( req, res ) {
+
+    //     return res.send({ message: 'Gotten' });
+    // });
 
 
     //---------------------------------
