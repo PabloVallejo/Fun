@@ -10,6 +10,9 @@ Some concepts has been adapted from `WordPress` and `Twitter Bootstrap`.
 
 <hr />
 
+![Fun](https://raw2.github.com/PabloVallejo/Fun/master/app-wall.png)
+
+
 ## How to install
 
     $ npm install
