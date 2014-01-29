@@ -7,7 +7,8 @@ var User = require( '../modules/account-manager' )
 ,   crypto = require( 'crypto' )
 ,   events = require( 'events' )
 ,   utils = require( '../modules/utils' )
-,   moment = require( 'moment' );
+,   moment = require( 'moment' )
+,   gravatar = require( '../modules/gravatar' );
 
 
 /**
@@ -157,21 +158,6 @@ Entrance.prototype.setAuthCookie = function( user ) {
  }
 
 
-
-/**
-* App debug
-*/
-exports.app = function( req, res ) {
-
-    var user = {
-            _id: none
-        ,   display_name: 'Pablo Vallejo'
-        ,   username: 'pablo'
-    }
-
-    res.render( 'app', { user: user } );
-}
-
 /**
 * Index View
 */
@@ -197,15 +183,23 @@ exports.index = function( req, res ) {
                 msg = {
                         author_id: msgs[ m ][ 'author_id' ]
                     ,   author_display_name: msgs[ m ][ 'author_display_name' ]
-                    ,   author_avatar_src: msgs[ m ][ 'author_avatar_src' ]
                     ,   message_text: msgs[ m ][ 'message_text' ]
                     ,   date: moment( msgs[ m ][ 'date' ] ).fromNow()
+                    ,   author_avatar_src: gravatar.url( msgs[ m ][ 'author_email' ] )
                 }
 
                 coll.push( msg );
             }
 
-            res.render( 'app', { messages: coll, user: user });
+            // Build user object to render view
+            var userClone = {
+                    display_name: user.display_name
+                ,   avatar_src: gravatar.url( user.email ) 
+                ,   email: user.email
+                ,   _id: user._id
+            };
+
+            res.render( 'app', { messages: coll, user: userClone } );
 
         });
 
@@ -275,7 +269,7 @@ exports.login = function( req, res ) {
 exports.createUser = function( req, res ) {
 
     var user = User
-    ,   fields = [ 'username', 'password', 'display_name', 'avatar_src' ]
+    ,   fields = [ 'username', 'password', 'display_name', 'email' ]
     ,   data = {}
     ,   entrance = new Entrance( req, res );
 
@@ -291,12 +285,12 @@ exports.createUser = function( req, res ) {
     candidate = new User( data );
     candidate.save( function( err, user ) {
 
-        if( err ) {
+        if ( err ) {
             console.log( err );
             res.send({ error: error });
         }
 
-        // // Send some user data
+        // Send some user data
         res.send({ user: user, error: err });
 
     });
@@ -312,7 +306,7 @@ exports.newMessage = function( req, res ) {
     var data = {}
     ,   errors = []
     ,   fields = [ 'author_id', 'author_display_name'
-            , 'message_text', 'date', 'author_avatar_src'
+            , 'message_text', 'date', 'author_email'
         ];
 
     for ( var i = 0; i < fields.length; i++ ) {

@@ -9,7 +9,7 @@
 
             <div class="new-message">
                 <div class="avatar">
-                    <img class="img-circle" src="images/<%= user.avatar_src %>" alt="">
+                    <img class="img-circle" src="<%= user.avatar_src %>" alt="">
                 </div>
                 <div class="message-body">
                     <form class="new-message-form" action="">
@@ -20,6 +20,7 @@
                             <input class="button" value="Share." type="submit">
                             <input type="hidden" name="author-id" value="<%= user._id %>">
                             <input type="hidden" name="author-display-name" value="<%= user.display_name %>">
+                            <input type="hidden" name="author-email" value="<%= user.email %>">
                             <input type="hidden" name="author-avatar-src" value="<%= user.avatar_src %>">
                         </div>
                    </form>
@@ -34,7 +35,7 @@
 
                 <div class="message">
                     <div class="avatar">
-                        <img class="img-circle" src="images/<%= message.author_avatar_src %>" alt="">
+                        <img class="img-circle" src="<%= message.author_avatar_src %>" alt="">
                     </div>
                     <div class="message-body">
                         <h4><%= message.author_display_name %><span class="small"> •

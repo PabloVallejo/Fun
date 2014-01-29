@@ -15,7 +15,6 @@ module.exports = function( app ) {
     // Site urls
     //---------------------
     app.get( '/', App.index );
-    app.get( '/app', App.app );
 
 
     //-----------------------------
@@ -34,10 +33,6 @@ module.exports = function( app ) {
     // Messages
     //---------------------------
     app.post( '/message', App.newMessage );
-    // app.post( '/message', function( req, res ) {
-
-    //     return res.send({ message: 'Gotten' });
-    // });
 
 
     //---------------------------------
