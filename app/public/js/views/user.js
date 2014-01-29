@@ -43,7 +43,7 @@
                 $( modal ).hide()
                 $( backdrop ).hide();
 
-                console.log( response );
+                alert( 'Voila, You can now login using your credentials.' );
             }
 
             // On login
