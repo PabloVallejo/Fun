@@ -208,7 +208,6 @@ exports.index = function( req, res ) {
 
     // Not logged in
     entrance.on( 'notLoggedIn', function( err ) {
-        console.log( err );
         res.render( 'index' );
     });
 
@@ -244,6 +243,7 @@ exports.login = function( req, res ) {
 
     // Success
     entrance.on( 'loginSuccess', function( user ) {
+        console.log( 'User: ' );
         console.log( user );
         res.send({ user: user });
 
@@ -251,7 +251,6 @@ exports.login = function( req, res ) {
 
     // Failure
     entrance.on( 'loginFailure', function( err ) {
-        console.log( err );
         res.send({ error: err });
     });
 
@@ -286,7 +285,6 @@ exports.createUser = function( req, res ) {
     candidate.save( function( err, user ) {
 
         if ( err ) {
-            console.log( err );
             res.send({ error: error });
         }
 
