@@ -1,7 +1,7 @@
 {
   "name": "Fun",
   "version": "0.0.1",
-  "description": "Simple wall messages app.",
+  "description": "Simple wall messages app using MongoDb and Backbone.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,12 +11,12 @@
   "license": "BSD",
   "dependencies": {
     "express": "~3.1.0",
-    "mongoose": "*",
+    "mongoose": "3.8.6",
     "moment": "~2.0.0",
     "ejs": "~0.8.3",
     "less-middleware": "~0.1.9",
-    "crypto": "*",
-    "moment": "*"
+    "crypto": "0.0.3",
+    "moment": "2.5.1"
   },
   "devDependencies": {
     "mocha": "*",

@@ -285,7 +285,7 @@ exports.createUser = function( req, res ) {
     candidate.save( function( err, user ) {
 
         if ( err ) {
-            res.send({ error: error });
+            res.send({ error: err });
         }
 
         // Send some user data
