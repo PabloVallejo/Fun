@@ -6,11 +6,11 @@ and messages.
 In the Front-end, `Backbone` is used to handle the interaction.
 Some concepts has been adapted from `WordPress` and `Twitter Bootstrap`.
 
-![Fun](https://raw2.github.com/PabloVallejo/Fun/master/app-login.png)
+![Fun](https://raw.githubusercontent.com/PabloVallejo/Fun/master/app-login.png)
 
 <hr />
 
-![Fun](https://raw2.github.com/PabloVallejo/Fun/master/app-wall.png)
+![Fun](https://raw.githubusercontent.com/PabloVallejo/Fun/master/app-wall.png)
 
 ## Quick start
     
